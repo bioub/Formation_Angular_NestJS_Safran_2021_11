@@ -1,0 +1,11 @@
+<form>
+  <div>
+    Username: <input [value]="user.username" name="username" (input)="user.username = $any($event.target).value" />
+  </div>
+  <div>
+    Email : <input [value]="user.email" />
+  </div>
+  <div>
+    Is Admin : <input type="checkbox" [checked]="user.isAdmin" />
+  </div>
+</form>
