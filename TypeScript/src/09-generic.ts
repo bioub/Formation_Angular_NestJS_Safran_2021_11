@@ -4,7 +4,7 @@ class Stack<T = string> {
   push(el: T) {
 
   }
-  peek() {
+  peek(): T {
     return this.array[this.array.length - 1];
   }
 }

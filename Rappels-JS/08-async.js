@@ -30,4 +30,7 @@ console.log('E');
 // file d'attente (0ms) : cbB
 // file d'attente (7ms) :
 // file d'attente (500ms) : cbA cbD
-// file d'attente (501ms) : cbA cbD
+// file d'attente (501ms) : cbD
+// file d'attente (502ms) :
+// file d'attente (1000ms) : cbC
+// file d'attente (1001ms) :

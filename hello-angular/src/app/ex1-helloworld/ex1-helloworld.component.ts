@@ -7,9 +7,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class Ex1HelloworldComponent implements OnInit {
 
+  name = 'Toto';
+
   constructor() { }
 
   ngOnInit(): void {
   }
 
+  updateName(event: Event) {
+    const inputEl = event.target as HTMLInputElement;
+    this.name = inputEl.value;
+  }
 }

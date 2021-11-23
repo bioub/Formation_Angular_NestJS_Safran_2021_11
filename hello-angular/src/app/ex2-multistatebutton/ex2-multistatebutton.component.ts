@@ -15,4 +15,9 @@ export class Ex2MultistatebuttonComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  selectNext() {
+    const selectedIndex = this.items.indexOf(this.selected);
+    this.selected = this.items[(selectedIndex + 1) % this.items.length];
+  }
+
 }
