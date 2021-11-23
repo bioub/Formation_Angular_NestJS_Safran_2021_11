@@ -1,0 +1,4 @@
+<form (submit)="onSubmit($event)">
+  <input type="checkbox" />
+  <input [value]="newTodo.title" (input)="newTodo.title = $any($event.target).value" />
+</form>
