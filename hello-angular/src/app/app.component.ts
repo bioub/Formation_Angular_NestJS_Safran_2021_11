@@ -6,5 +6,8 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'SHE hello-angular';
+  prenoms = ['Michel', 'Thierry', 'Philippe'];
+  selectedPrenom = 'Philippe';
+
+  
 }

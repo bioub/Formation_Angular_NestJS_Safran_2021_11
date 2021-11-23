@@ -12,5 +12,29 @@
 <h2>exercice 1</h2>
 <app-ex1-helloworld></app-ex1-helloworld>
 
-<h2>exercice 2</h2>
+<h2 class="menu">exercice 2</h2>
 <app-ex2-multistatebutton></app-ex2-multistatebutton>
+
+<h2>clock</h2>
+<app-clock></app-clock>
+
+<h2>select</h2>
+<app-select
+  [items]="prenoms"
+  [selected]="selectedPrenom"
+  (selectedChange)="selectedPrenom = $event"
+></app-select>
+<app-select
+  [items]="prenoms"
+  [(selected)]="selectedPrenom"
+></app-select>
+<!-- [()] : BANANA IN BOX -->
+<!--
+  selectComponent.dispatchEvent(new Event('selectedChange', 'toto'))
+  selectComponent.addEventListener('selectedChange', ($event) => {
+    selectedPrenom = $event;
+  });
+-->
+<app-select [items]="prenoms" (selectedChange)="selectedPrenom = $event"></app-select>
+
+<p>Prénom sélectionné : {{ selectedPrenom }}</p>

@@ -1,12 +1,23 @@
 <form>
-  <div>
-    Username: <input [value]="user.username" name="username" (input)="user.username = $any($event.target).value" />
+  <!-- <div [className]="user.username === '' ? 'form-row invalid' : 'form-row valid'"> -->
+  <!-- <div class="form-row" [class.valid]="user.username" [class.invalid]="!user.username"> -->
+  <div class="form-row" [ngClass]="{valid: user.username, invalid: !user.username}">
+    Username: <input [value]="user.username" name="username" (input)="user.username = $any($event.target).value" #inputUsernameEl />
     <!-- inputEl.value = user.username; -->
+    <!-- <ng-template [ngIf]="!user.username">
+      <span>Le username est obligatoire</span>
+    </ng-template> -->
+    <!-- <ng-container *ngIf="!user.username"> -->
+      <span *ngIf="!user.username">Le username est obligatoire</span>
+    <!-- </ng-container> -->
   </div>
-  <div>
+  <div [attr.role]="user.username ? 'role' : 'progressbar'" role="row">
     Email : <input [value]="user.email" />
   </div>
-  <div>
-    Is Admin : <input type="checkbox" [checked]="user.isAdmin" />
+  <div [style.backgroundColor]="user.isAdmin ? 'red' : 'green'">
+    Is Admin : <input type="checkbox" [checked]="user.isAdmin" (change)="user.isAdmin = $any($event.target).checked" />
   </div>
 </form>
+
+
+inputEl.value = {{ inputUsernameEl.value }}

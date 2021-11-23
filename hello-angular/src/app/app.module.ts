@@ -7,6 +7,9 @@ import { UserFormComponent } from './user-form/user-form.component';
 import { CounterComponent } from './counter/counter.component';
 import { Ex1HelloworldComponent } from './ex1-helloworld/ex1-helloworld.component';
 import { Ex2MultistatebuttonComponent } from './ex2-multistatebutton/ex2-multistatebutton.component';
+import { ClockComponent } from './clock/clock.component';
+import { KebabCasePipe } from './kebab-case.pipe';
+import { SelectComponent } from './select/select.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +18,10 @@ import { Ex2MultistatebuttonComponent } from './ex2-multistatebutton/ex2-multist
     UserFormComponent,
     CounterComponent,
     Ex1HelloworldComponent,
-    Ex2MultistatebuttonComponent
+    Ex2MultistatebuttonComponent,
+    ClockComponent,
+    KebabCasePipe,
+    SelectComponent
   ],
   imports: [
     BrowserModule
