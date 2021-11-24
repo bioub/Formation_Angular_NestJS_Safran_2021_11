@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { User } from './user.model';
-import { Observable } from 'rxjs';
+import { delay, Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 
 @Injectable({
@@ -17,9 +17,15 @@ export class UserService {
   }
 
   getById(id: string | number): Observable<User> {
-    return this.httpClient.get<User>(
+    const user$ = this.httpClient.get<User>(
       environment.backendUrl + '/users/' + id
     );
+
+    if (id == "2") {
+      return user$.pipe(delay(3000));
+    }
+
+    return user$;
   }
 
   create(user: User): Observable<User> {
