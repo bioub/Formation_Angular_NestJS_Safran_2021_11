@@ -7,6 +7,7 @@ import { TodoFormComponent } from './todo-form/todo-form.component';
 import { TodosListComponent } from './todos-list/todos-list.component';
 import { TodoItemComponent } from './todo-item/todo-item.component';
 import { SharedModule } from '../shared/shared.module';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -18,7 +19,8 @@ import { SharedModule } from '../shared/shared.module';
   ],
   imports: [
     SharedModule,
-    TodosRoutingModule
+    TodosRoutingModule,
+    FormsModule,
   ],
   exports: [
     TodosComponent

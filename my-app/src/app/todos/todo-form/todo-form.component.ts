@@ -20,8 +20,7 @@ export class TodoFormComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  onSubmit(event: Event) {
-    event.preventDefault();
+  onSubmit() {
     this.add.emit({...this.newTodo});
     this.newTodo.title = '';
   }
