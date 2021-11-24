@@ -1,5 +1,7 @@
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { DropdownModule } from 'primeng/dropdown';
 
 import { AppComponent } from './app.component';
 import { HelloComponent } from './hello/hello.component';
@@ -10,6 +12,7 @@ import { Ex2MultistatebuttonComponent } from './ex2-multistatebutton/ex2-multist
 import { ClockComponent } from './clock/clock.component';
 import { KebabCasePipe } from './kebab-case.pipe';
 import { SelectComponent } from './select/select.component';
+import { HighlightDirective } from './highlight.directive';
 
 @NgModule({
   declarations: [
@@ -21,10 +24,13 @@ import { SelectComponent } from './select/select.component';
     Ex2MultistatebuttonComponent,
     ClockComponent,
     KebabCasePipe,
-    SelectComponent
+    SelectComponent,
+    HighlightDirective
   ],
   imports: [
-    BrowserModule
+    BrowserAnimationsModule,
+    BrowserModule,
+    DropdownModule
   ],
   providers: [],
   bootstrap: [AppComponent]

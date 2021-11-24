@@ -1,6 +1,6 @@
-<h2>hello</h2>
+<h2 appHighlight>hello</h2>
 
-<app-hello></app-hello>
+<app-hello appHighlight="red"></app-hello>
 
 <h2>User form</h2>
 <app-user-form></app-user-form>
@@ -38,3 +38,7 @@
 <app-select [items]="prenoms" (selectedChange)="selectedPrenom = $event"></app-select>
 
 <p>Prénom sélectionné : {{ selectedPrenom }}</p>
+
+
+
+<p-dropdown [options]="prenoms" (onChange)="selectedPrenom = $event.value"></p-dropdown>
