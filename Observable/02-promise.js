@@ -13,6 +13,8 @@
 //   }
 // });
 
+// Promise, Future, Defer
+
 const fs = require('fs');
 
 fs.promises.readFile('.prettierrc')

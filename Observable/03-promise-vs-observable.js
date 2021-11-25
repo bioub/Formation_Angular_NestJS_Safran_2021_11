@@ -12,7 +12,6 @@
 //   return new Promise((resolve, reject) => {
 //     setInterval(() => {
 //       resolve();
-//       console.log('resolve')
 //     }, delayMs);
 //   });
 // }
