@@ -8,5 +8,8 @@ if (environment.production) {
   enableProdMode();
 }
 
+// désactive Zone.js (on devra lancer la detection manuellement à chaque fois)
+// platformBrowserDynamic().bootstrapModule(AppModule, {ngZone: 'noop'})
+
 platformBrowserDynamic().bootstrapModule(AppModule)
   .catch(err => console.error(err));

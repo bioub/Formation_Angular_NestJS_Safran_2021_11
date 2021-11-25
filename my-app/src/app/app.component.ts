@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { ActivationEnd, Router } from '@angular/router';
 import { filter } from 'rxjs/operators';
+import { kebabCase } from 'lodash-es';
 
 @Component({
   selector: 'my-root',
@@ -25,5 +26,10 @@ export class AppComponent {
       .subscribe((event) => {
         title.setTitle((event as ActivationEnd).snapshot.data['title']);
       });
+  }
+
+  kebabCase(v: string) {
+    console.log('kebabCase');
+    return kebabCase(v);
   }
 }

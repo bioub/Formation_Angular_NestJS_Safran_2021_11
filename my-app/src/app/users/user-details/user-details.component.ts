@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { catchError, map, mergeMap, switchMap } from 'rxjs';
+import { catchError, map, mergeMap, Observable, ReplaySubject, switchMap } from 'rxjs';
 import { User } from '../shared/user.model';
 import { UserService } from '../shared/user.service';
 
@@ -10,7 +10,9 @@ import { UserService } from '../shared/user.service';
   styleUrls: ['./user-details.component.scss'],
 })
 export class UserDetailsComponent implements OnInit {
-  user: User = {};
+  // user: User = {};
+  user$!: Observable<User>;
+  // user$ = new ReplaySubject<User>(1);
 
   constructor(
     private activatedRoute: ActivatedRoute,
@@ -31,13 +33,19 @@ export class UserDetailsComponent implements OnInit {
     //       this.user = user;
     //     });
     // });
-    this.activatedRoute.paramMap
+    // this.activatedRoute.paramMap
+    //   .pipe(
+    //     map((paramMap) => paramMap.get('userId') as string),
+    //     switchMap((userId) => this.userService.getById(userId)),
+    //   )
+    //   .subscribe((user) => {
+    //     this.user = user;
+    //   });
+
+    this.user$ = this.activatedRoute.paramMap
       .pipe(
         map((paramMap) => paramMap.get('userId') as string),
         switchMap((userId) => this.userService.getById(userId)),
       )
-      .subscribe((user) => {
-        this.user = user;
-      });
   }
 }

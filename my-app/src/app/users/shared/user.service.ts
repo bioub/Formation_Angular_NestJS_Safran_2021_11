@@ -1,19 +1,27 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { User } from './user.model';
-import { delay, Observable } from 'rxjs';
+import { delay, Observable, ReplaySubject } from 'rxjs';
 import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root',
 })
 export class UserService {
+
+  users$!: ReplaySubject<User[]>;
+
   constructor(private httpClient: HttpClient) {}
 
   getAll(): Observable<User[]> {
-    return this.httpClient.get<User[]>(
-      environment.backendUrl + '/users'
-    );
+    if (!this.users$) {
+      this.users$ = new ReplaySubject(1);
+      this.httpClient.get<User[]>(
+        environment.backendUrl + '/users'
+      ).subscribe(this.users$);
+    }
+
+    return this.users$;
   }
 
   getById(id: string | number): Observable<User> {

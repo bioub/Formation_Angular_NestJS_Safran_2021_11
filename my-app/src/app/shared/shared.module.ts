@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { ClockComponent } from './clock/clock.component';
 import { MultistatebuttonComponent } from './multistatebutton/multistatebutton.component';
 import { SelectComponent } from './select/select.component';
+import { KebabCasePipe } from './kebab-case.pipe';
 
 
 
@@ -11,6 +12,7 @@ import { SelectComponent } from './select/select.component';
     ClockComponent,
     MultistatebuttonComponent,
     SelectComponent,
+    KebabCasePipe,
   ],
   imports: [
     CommonModule
@@ -19,6 +21,7 @@ import { SelectComponent } from './select/select.component';
     ClockComponent,
     MultistatebuttonComponent,
     SelectComponent,
+    KebabCasePipe,
 
     CommonModule,
   ]

@@ -17,6 +17,9 @@ const routes: Routes = [{
     title: 'A propos'
   }
 }, {
+  path: 'users',
+  loadChildren: () => import('./users/users.module').then(({UsersModule}) => UsersModule)
+},{
   path: '**', // pour toutes les autres URL (à placer en dernier)
   component: NotFoundComponent,
   data: {

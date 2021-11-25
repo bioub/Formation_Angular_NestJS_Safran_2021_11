@@ -13,7 +13,7 @@ import { UsersComponent } from './users.component';
 
 const routes: Routes = [
   {
-    path: 'users', // url: /users
+    path: '', // url: /users
     component: UsersComponent,
     canActivate: [AdminGuard],
     canActivateChild: [AdminGuard],
