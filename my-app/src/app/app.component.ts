@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { ActivationEnd, Router } from '@angular/router';
 import { filter } from 'rxjs/operators';
-import { kebabCase } from 'lodash-es';
+import { kebabCase } from 'lodash';
 
 @Component({
   selector: 'my-root',
@@ -14,7 +14,7 @@ export class AppComponent {
   title = 'my-app';
 
   constructor(router: Router, title: Title) {
-    console.log(router.config);
+    // console.log(router.config);
     // router.events.subscribe((event) => {
     //   if (event instanceof ActivationEnd) {
     //     title.setTitle(event.snapshot.data['title']);
@@ -29,7 +29,7 @@ export class AppComponent {
   }
 
   kebabCase(v: string) {
-    console.log('kebabCase');
+    // console.log('kebabCase');
     return kebabCase(v);
   }
 }

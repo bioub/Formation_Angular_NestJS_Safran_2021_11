@@ -53,7 +53,7 @@ export class ClockComponent implements OnInit, OnDestroy {
   }
 
   hello() {
-    console.log('hello');
+    // console.log('hello');
     const debut = Date.now();
     while (debut + 1000 > Date.now());
   }

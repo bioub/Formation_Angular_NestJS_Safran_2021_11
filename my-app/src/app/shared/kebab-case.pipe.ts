@@ -7,7 +7,7 @@ import { kebabCase } from "lodash";
 export class KebabCasePipe implements PipeTransform {
 
   transform(v: string): string {
-    console.log('kebabCase');
+    // console.log('kebabCase');
     return kebabCase(v);
   }
 

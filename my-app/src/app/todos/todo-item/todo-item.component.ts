@@ -17,7 +17,7 @@ export class TodoItemComponent implements OnInit, DoCheck {
   }
 
   ngDoCheck(): void {
-    console.log('TodoItem checked');
+    // console.log('TodoItem checked');
   }
 
   onButtonClick() {
