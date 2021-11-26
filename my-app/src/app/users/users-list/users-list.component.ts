@@ -1,7 +1,12 @@
 import { Component, OnInit } from '@angular/core';
+import { Store } from '@ngrx/store';
 import { forkJoin, of, race, timer } from 'rxjs';
+import { GlobalState } from 'src/app/state.model';
 import { User } from '../shared/user.model';
 import { UserService } from '../shared/user.service';
+import { fetchUsers } from '../store/users.action';
+import { UsersState } from '../store/users.reducer';
+import { usersSelector } from '../store/users.selector';
 
 @Component({
   selector: 'my-users-list',
@@ -22,9 +27,10 @@ export class UsersListComponent implements OnInit {
 
   users: User[] = [];
 
-  constructor(private userService: UserService) { }
+  constructor(private store: Store<GlobalState>) { }
 
   ngOnInit(): void {
+
     // forkJoin([
     //   this.userService.getById(3),
     //   this.userService.getAll()
@@ -40,8 +46,14 @@ export class UsersListComponent implements OnInit {
     //     this.users = result;
     //   }
     // });
-    this.userService.getAll().subscribe((users) => {
-      this.users = users;
+
+    // this.userService.getAll().subscribe((users) => {
+    //   this.users = users;
+    // });
+
+    this.store.dispatch(fetchUsers());
+    this.store.select(usersSelector).subscribe((users) => {
+      this.users = users.items;
     });
   }
 

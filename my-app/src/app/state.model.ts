@@ -1,9 +1,11 @@
 import { CoreState } from './core/store/core.reducer';
 import { TodosState } from './todos/store/todos.reducer';
+import { UsersState } from './users/store/users.reducer';
 
 export interface GlobalState {
   core: CoreState;
   todos: TodosState;
+  users: UsersState;
 }
 
 export const initialState: GlobalState = {
@@ -25,4 +27,8 @@ export const initialState: GlobalState = {
       },
     ],
   },
+  users: {
+    loading: false,
+    items: [],
+  }
 };

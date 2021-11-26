@@ -4,7 +4,7 @@
 // qui elles meme sont à la clé todos du state Global
 // Le state global est défini dans app/state.model.ts
 
-import { GlobalState } from "../../../app/state.model";
+import { GlobalState } from "../../state.model";
 
 // le state global ressemble à :
 // {
@@ -17,6 +17,6 @@ import { GlobalState } from "../../../app/state.model";
 //   }
 // }
 
-export function todosSelector(state: GlobalState) {
-  return state.todos;
+export function usersSelector(state: GlobalState) {
+  return state.users;
 }

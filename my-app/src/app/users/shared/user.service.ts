@@ -8,28 +8,31 @@ import { environment } from '../../../environments/environment';
   providedIn: 'root',
 })
 export class UserService {
-
-  users$!: ReplaySubject<User[]>;
+  // users$!: ReplaySubject<User[]>;
 
   constructor(private httpClient: HttpClient) {}
 
   getAll(): Observable<User[]> {
-    if (!this.users$) {
-      this.users$ = new ReplaySubject(1);
-      this.httpClient.get<User[]>(
-        environment.backendUrl + '/users'
-      ).subscribe(this.users$);
-    }
-
-    return this.users$;
+    return this.httpClient.get<User[]>(environment.backendUrl + '/users');
   }
+
+  // getAll(): Observable<User[]> {
+  //   if (!this.users$) {
+  //     this.users$ = new ReplaySubject(1);
+  //     this.httpClient.get<User[]>(
+  //       environment.backendUrl + '/users'
+  //     ).subscribe(this.users$);
+  //   }
+
+  //   return this.users$;
+  // }
 
   getById(id: string | number): Observable<User> {
     const user$ = this.httpClient.get<User>(
-      environment.backendUrl + '/users/' + id
+      environment.backendUrl + '/users/' + id,
     );
 
-    if (id == "2") {
+    if (id == '2') {
       return user$.pipe(delay(3000));
     }
 
@@ -37,9 +40,6 @@ export class UserService {
   }
 
   create(user: User): Observable<User> {
-    return this.httpClient.post<User>(
-      environment.backendUrl + '/users',
-      user,
-    );
+    return this.httpClient.post<User>(environment.backendUrl + '/users', user);
   }
 }

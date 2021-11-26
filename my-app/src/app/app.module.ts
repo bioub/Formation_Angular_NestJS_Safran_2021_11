@@ -12,6 +12,11 @@ import { HttpClientModule } from '@angular/common/http';
 import { StoreModule } from '@ngrx/store';
 import { todosReducer } from './todos/store/todos.reducer';
 import { coreReducer } from './core/store/core.reducer';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { environment } from '../environments/environment';
+import { EffectsModule } from '@ngrx/effects';
+import { usersReducer } from './users/store/users.reducer';
+import { UsersEffect } from './users/store/users.effect';
 
 @NgModule({
   declarations: [
@@ -29,7 +34,10 @@ import { coreReducer } from './core/store/core.reducer';
     StoreModule.forRoot({
       core: coreReducer,
       todos: todosReducer,
+      users: usersReducer,
     }),
+    StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
+    EffectsModule.forRoot([UsersEffect]),
     AppRoutingModule, // le dernier à cause de la route **
   ],
   providers: [],

@@ -1,11 +1,11 @@
-import { Action, createReducer, on } from "@ngrx/store";
+import { createReducer, on } from "@ngrx/store";
 import { initialState } from "src/app/state.model";
-import { Todo } from "../todo.model";
-import { addTodo, removeTodo, updateNewTodo } from "./todos.action";
+import { User } from "../shared/user.model";
+import { fetchUsers, fetchUsersSuccess } from "./users.action";
 
-export interface TodosState {
-  newTodo: string;
-  items: Todo[]
+export interface UsersState {
+  loading: boolean;
+  items: User[];
 }
 
 // Exercice 4
@@ -22,8 +22,7 @@ export interface TodosState {
 // export const todosReducer = (state = initialState.todos, action: Action) => (state as any);
 
 
-export const todosReducer = createReducer(initialState.todos,
-  on(updateNewTodo, (state, action) => ({...state, newTodo: action.value})),
-  on(addTodo, (state, action) => ({...state, items: [...state.items, action.todo]})),
-  on(removeTodo, (state, action) => ({...state, items: state.items.filter((t) => t.id !== action.id)})),
+export const usersReducer = createReducer(initialState.users,
+  on(fetchUsers, (state, action) => ({...state, loading: true})),
+  on(fetchUsersSuccess, (state, action) => ({...state, loading: false, items: action.users})),
 );

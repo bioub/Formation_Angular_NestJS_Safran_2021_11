@@ -9,5 +9,6 @@ export interface CoreState {
 export const coreReducer = createReducer(
   initialState.core,
   on(increment, (state, action) => ({...state, count: state.count + action.step})),
+  // on(decrement, (state, action) => ({...state, count: state.count - action.step})),
 );
 
