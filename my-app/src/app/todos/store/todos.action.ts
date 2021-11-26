@@ -1,4 +1,4 @@
-// Exercice 1 :
+// Exercice 3 :
 // créer et exporter 3 actions creators avec createAction
 
 // - type: UPDATE_NEWTODO (mettre à jour le champ), value: valeur saisie

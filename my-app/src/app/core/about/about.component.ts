@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
-import { State } from 'src/app/core/store/core.reducer';
+import { GlobalState } from 'src/app/state.model';
 import { increment } from '../store/core.action';
 import { countSelector } from '../store/core.selector';
 
@@ -14,7 +14,7 @@ export class AboutComponent implements OnInit {
 
   nb$!: Observable<number>;
 
-  constructor(private store: Store<State>) { }
+  constructor(private store: Store<GlobalState>) { }
 
   ngOnInit(): void {
     // this.store.subscribe((state) => {

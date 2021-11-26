@@ -1,7 +1,7 @@
-import { State } from "./core.reducer";
+import { GlobalState } from "src/app/state.model";
 
-export function countSelector(state: State) {
-  return state.count;
+export function countSelector(state: GlobalState) {
+  return state.core.count;
 }
 
 // réserver createSelector aux memoizeSelector

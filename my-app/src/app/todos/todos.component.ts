@@ -29,7 +29,7 @@ export class TodosComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    // Exercice 5
+    // Exercice 2
     // utiliser store.select pour vous abonner
     // au changement du state
     // au choix .subscribe ou | async
@@ -37,7 +37,7 @@ export class TodosComponent implements OnInit {
 
   updateNewTodo(newTodo: string) {
     this.newTodo = newTodo;
-    // Exercice 2 :
+    // Exercice 5 :
     // remplacer la modif de newTodo par un dispatch
   }
 
@@ -48,7 +48,7 @@ export class TodosComponent implements OnInit {
     // changement immuable
     this.todos = [...this.todos, todo];
 
-    // Exercice 2 :
+    // Exercice 5 :
     // remplacer les modif du tableau par des dispatch
   }
 
@@ -63,7 +63,7 @@ export class TodosComponent implements OnInit {
 
     this.todos = this.todos.filter((t) => t.id !== todo.id);
 
-    // Exercice 2 :
+    // Exercice 5 :
     // remplacer les modif du tableau par des dispatch
   }
 }
