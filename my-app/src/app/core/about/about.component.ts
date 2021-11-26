@@ -7,9 +7,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AboutComponent implements OnInit {
 
+  nb = 0;
+
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  onIncrement() {
+    this.nb++;
   }
 
 }

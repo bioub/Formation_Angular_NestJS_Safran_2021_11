@@ -4,6 +4,7 @@ import { ClockComponent } from './clock/clock.component';
 import { MultistatebuttonComponent } from './multistatebutton/multistatebutton.component';
 import { SelectComponent } from './select/select.component';
 import { KebabCasePipe } from './kebab-case.pipe';
+import { CounterComponent } from './counter/counter.component';
 
 
 
@@ -12,6 +13,7 @@ import { KebabCasePipe } from './kebab-case.pipe';
     ClockComponent,
     MultistatebuttonComponent,
     SelectComponent,
+    CounterComponent,
     KebabCasePipe,
   ],
   imports: [
@@ -21,6 +23,7 @@ import { KebabCasePipe } from './kebab-case.pipe';
     ClockComponent,
     MultistatebuttonComponent,
     SelectComponent,
+    CounterComponent,
     KebabCasePipe,
 
     CommonModule,
