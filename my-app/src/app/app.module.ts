@@ -10,6 +10,9 @@ import { HomeComponent } from './core/home/home.component';
 import { AboutComponent } from './core/about/about.component';
 import { NotFoundComponent } from './core/not-found/not-found.component';
 import { HttpClientModule } from '@angular/common/http';
+import { StoreModule } from '@ngrx/store';
+import { reducers } from './core/store/core.reducer';
+// import { reducers, metaReducers } from './reducers';
 
 @NgModule({
   declarations: [
@@ -24,6 +27,7 @@ import { HttpClientModule } from '@angular/common/http';
     SharedModule,
     BrowserModule,
     HttpClientModule,
+    StoreModule.forRoot(reducers),
     AppRoutingModule, // le dernier à cause de la route **
   ],
   providers: [],

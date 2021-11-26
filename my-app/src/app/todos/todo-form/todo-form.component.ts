@@ -1,4 +1,4 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Todo } from '../todo.model';
 
 @Component({
@@ -8,11 +8,13 @@ import { Todo } from '../todo.model';
 })
 export class TodoFormComponent implements OnInit {
 
-  newTodo: Todo = {
-    title: '',
-    completed: false,
-  };
+  // newTodo: Todo = {
+  //   title: '',
+  //   completed: false,
+  // };
 
+  @Input() title = '';
+  @Output() titleChange = new EventEmitter<string>();
   @Output() add = new EventEmitter<Todo>();
 
   constructor() { }
@@ -20,8 +22,11 @@ export class TodoFormComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  onTitleChange(title: string) {
+    this.titleChange.emit(title);
+  }
+
   onSubmit() {
-    this.add.emit({...this.newTodo});
-    this.newTodo.title = '';
+    this.add.emit({id: Math.random(), title: this.title, completed: false});
   }
 }

@@ -1,4 +1,4 @@
 <p>about works!</p>
 
 
-<app-counter [count]="nb" (increment)="onIncrement()"></app-counter>
+<app-counter [count]="$any(nb$ | async)" (increment)="onIncrement()"></app-counter>

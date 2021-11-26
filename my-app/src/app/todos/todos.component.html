@@ -1,2 +1,2 @@
-<my-todo-form (add)="addTodo($event)"></my-todo-form>
+<my-todo-form [title]="newTodo" (titleChange)="updateNewTodo($event)" (add)="addTodo($event)"></my-todo-form>
 <my-todos-list [items]="todos" (delete)="removeTodo($event)"></my-todos-list>

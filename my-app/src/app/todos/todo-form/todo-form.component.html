@@ -2,7 +2,7 @@
   <input type="checkbox" />
   <!-- <input [value]="newTodo.title" (input)="newTodo.title = $any($event.target).value" /> -->
   <!-- <input [ngModel]="newTodo.title" (ngModelChange)="newTodo.title = $event" /> -->
-  <input name="title" [(ngModel)]="newTodo.title" required #titleModel="ngModel" />
+  <input name="title" [ngModel]="title" (ngModelChange)="onTitleChange($event)" required #titleModel="ngModel" />
   <button>+</button>
   <span *ngIf="titleModel.invalid && (titleModel.touched || ngForm.submitted)">
     Le champ est obligatoire
